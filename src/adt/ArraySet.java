@@ -5,6 +5,8 @@
  */
 package adt;
 
+import java.util.Iterator;
+
 /**
  *
  * @author TARUC
@@ -94,4 +96,35 @@ public class ArraySet <T> implements setInterface <T> {
         }      
          return resultSet;
     }
+
+    @Override
+    public Iterator<T> getIterator() {
+        return new setIterator();      
+    }
+    
+    private class setIterator <T> implements Iterator <T>{
+        
+         int nextIndex = 0;
+         
+        @Override
+        public boolean hasNext() {
+            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if(nextIndex < size )
+                return true;
+            else
+                return false;
+        }
+
+        @Override
+        public T next() {
+            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            T nextElement = null;
+            if (hasNext())
+                nextElement = (T) array[nextIndex++];
+            return nextElement;
+        }
+        
+    }
+    
+    
 }

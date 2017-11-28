@@ -5,6 +5,8 @@
  */
 package adt;
 
+import java.util.Iterator;
+
 /**
  *
  * @author TARUC
@@ -16,4 +18,6 @@ public interface setInterface <T> {
     boolean checkSubset (setInterface anotherSet);
     void union (setInterface anotherSet);
     setInterface intersection(setInterface anotherSet);
+    
+    Iterator <T> getIterator();
 }
